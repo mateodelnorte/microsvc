@@ -1,6 +1,6 @@
 {
   "name": "microsvc",
-  "version": "0.0.0",
+  "version": "0.0.1",
   "description": "framework for developing tiny services",
   "bin": "./bin/microsvc",
   "main": "index.js",
