@@ -1,12 +1,3 @@
 #!/usr/bin/env node
 
-var log = require('llog');
-
-process.on('uncaughtException', function (e) {
-  if (e.message) log.error(e.message);
-  if (e.stack) log.error(e.stack);
-  else console.trace();
-  process.abort(1);
-});
-
-// TODO: implement tool for scaffolding microsvc implementations
+require('../index');

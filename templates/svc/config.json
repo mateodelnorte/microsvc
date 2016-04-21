@@ -1,0 +1,14 @@
+{
+  "SERVICEBUS_PREFETCH": 2500,
+  "development": {
+    "RABBITMQ_URL": "amqp://localhost:5672",
+    "REDIS": {
+      "HOST": "127.0.0.1",
+      "PORT": "6379"
+    }
+  },
+  "staging": {
+  },
+  "production": {
+  }
+}

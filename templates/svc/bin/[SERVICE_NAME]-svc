@@ -1,0 +1,20 @@
+#!/usr/bin/env node
+
+'use strict';
+
+const log = require('llog');
+
+log.info('starting [SERVICE_NAME]-svc');
+
+require('error-trap')();
+
+const api = require('../api');
+const service = require('../service');
+
+api.start((err) => {
+  if (err) throw err;
+  service.start((err) => {
+    if (err) throw err;
+    log.info('[SERVICE_NAME]-svc started');
+  });
+});
