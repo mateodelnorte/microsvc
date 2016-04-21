@@ -1,7 +1,7 @@
 {
   "name": "[SERVICE_NAME]-svc",
   "version": "0.0.1",
-  "description": "service to send stuff to slack",
+  "description": "fancy service description",
   "main": "index.js",
   "directories": {
     "test": "test"
@@ -12,7 +12,7 @@
     "bunyan": "^1.5.1",
     "cconfig": "^0.0.1",
     "debug": "^2.2.0",
-    "error-trap": "git+ssh://git@github.com/electronifie/error-trap.git#v0.0.3",
+    "errortrap": "^1.0.2",
     "express": "^4.13.4",
     "llog": "0.0.9",
     "lodash": "^3.9.3",

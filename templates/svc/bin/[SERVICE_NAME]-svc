@@ -6,7 +6,7 @@ const log = require('llog');
 
 log.info('starting [SERVICE_NAME]-svc');
 
-require('error-trap')();
+require('errortrap')();
 
 const api = require('../api');
 const service = require('../service');
