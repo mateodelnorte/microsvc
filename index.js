@@ -13,10 +13,10 @@ program
   .command('create <SERVICE_NAME>')
   .description('creates a new service with example handlers and api exposed')
     .action(function (serviceName) {
-      console.log('creating new microsvc \'${serviceName}\'...');
+      console.log(`creating new microsvc \'${serviceName}\'...`);
       createService(serviceName, (err) => {
         if (err) throw err;
-        console.log('finished creating new microsvc \'${serviceName}\'...');
+        console.log(`finished creating new microsvc \'${serviceName}\'...`);
         console.log(`type 'cd ./${serviceName} && npm i && make run' to initialize and run`);
       });
     })
