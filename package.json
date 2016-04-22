@@ -1,6 +1,6 @@
 {
   "name": "microsvc",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "description": "framework for developing tiny services",
   "bin": "./bin/microsvc",
   "main": "index.js",
@@ -13,6 +13,7 @@
     "commander": "^2.9.0",
     "debug": "^2.1.0",
     "llog": "0.0.1",
+    "mkdirp": "^0.5.1",
     "ncp": "^2.0.0",
     "stream-replace": "^1.0.0"
   },
