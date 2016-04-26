@@ -1,5 +1,5 @@
 MODULE?=
-NODE_APPS?=account-svc blotter-svc compliance-svc credit-svc denormalizer dmm-monitor engagement-svc fix-config-svc fix-router icbc-gateway icbc-mock-provider job-svc market-svc market-config-svc notification-svc opportunity-svc reference-data-svc reporting-svc scheduler-svc scoring-svc settlement-svc slack-svc statestreet-credit-gateway statestreet-mock-provider surveillance-svc test-suite trader-svc treasury-svc user-presence-svc web-compliance web-corp
+NODE_APPS?=
 NODE_VERSION=5.6.0
 VERSION=
 
