@@ -7,7 +7,7 @@ module.exports.ack = true;
 
 module.exports.routingKey = "product.updated"; // publish + subscribe pattern is used to react to fanout messages from other services. "this happened"
 
-module.exports.suscribe = function (event, cb) {
+module.exports.subscribe = function (event, cb) {
 
   log.info(`handling subscribed event of type ${event.type} with routingKey ${this.routingKey}`);
 
