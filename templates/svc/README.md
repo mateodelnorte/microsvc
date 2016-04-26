@@ -1,1 +1,1 @@
-# [SERVICE_NAME]-svc
+# [SERVICE_NAME]

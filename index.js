@@ -4,13 +4,28 @@
  * Module dependencies.
  */
 
-const createService = require('./lib/createService');
+
+const createSystem = require('./lib/createSystem');
 
 var program = require('commander')
   .version(require('./package.json').version);
 
 program
-  .command('create <SERVICE_NAME>')
+  .command('system <SYSTEM_NAME>')
+  .description('creates a new system')
+    .action(function (serviceName) {
+      console.log(`creating new system \'${systemName}\'...`);
+      createSystem(systemName, (err) => {
+        if (err) throw err;
+        console.log(`finished creating new system \'${systemName}\'...`);
+        console.log(`type 'cd ./${systemName}' and begin creating your first services`);
+      });
+    })
+
+const createService = require('./lib/createService');
+
+program
+  .command('service <SERVICE_NAME>')
   .description('creates a new service with example handlers and api exposed')
     .action(function (serviceName) {
       console.log(`creating new microsvc \'${serviceName}\'...`);

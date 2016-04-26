@@ -1,0 +1,217 @@
+# ~/.tmuxinator/all.yml
+
+
+name: [SYSTEM_NAME]
+root: ./
+
+# Uncomment these two if you're a brave soul running a nightly build
+# attach: false
+# post: tmux -CC attach
+
+# Optional tmux socket
+# socket_name: foo
+
+# Runs before everything. Use it to start daemons etc.
+# pre: sudo /etc/rc.d/mysqld start
+
+# Runs in each window and pane before window/pane specific commands. Useful for setting up interpreter versions.
+# pre_window: rbenv shell 2.0.0-p247
+
+# Pass command line options to tmux. Useful for specifying a different tmux.conf.
+# tmux_options: -f ~/.tmux.mac.conf
+
+# Change the command to call tmux.  This can be used by derivatives/wrappers like byobu.
+# tmux_command: byobu
+
+windows:
+  - frontend:
+      layout: tiled
+      panes:
+        - web-admin:
+          - printf '\033]2;web-admin\033\\'
+          - cd ./web-admin/
+          - <% if ENV["NO_WEB"] != "true" %> sleep 5; make run <% else %> echo 'called with no-web' <% end %>
+        - web-client:
+          - printf '\033]2;web-client\033\\'
+          - cd ./web-client/
+          - <% if ENV["NO_WEB"] != "true" %> sleep 5; make run <% else %> echo 'called with no-web' <% end %>
+        - web-corp:
+          - printf '\033]2;web-corp\033\\'
+          - cd ./web-corp/
+          - <% if ENV["NO_WEB"] != "true" %> sleep 5; make run <% else %> echo 'called with no-web' <% end %>
+        - web-subscribers:
+          - printf '\033]2;web-subscribers\033\\'
+          - cd ./web-subscribers/
+          - <% if ENV["NO_WEB"] != "true" %> sleep 5; make run <% else %> echo 'called with no-web' <% end %>
+  - trading-1:
+      layout: tiled
+      panes:
+        - market-svc:
+          - printf '\033]2;market-svc\033\\'
+          - cd ./market-svc/
+          - sleep 5
+          - make run
+        - market-config-svc:
+          - printf '\033]2;market-config-svc\033\\'
+          - cd ./market-config-svc/
+          - sleep 5
+          - make run
+        - denormalizer:
+          - printf '\033]2;denormalizer\033\\'
+          - cd ./denormalizer/
+          - sleep 5
+          - make run
+        - blotter-svc:
+          - printf '\033]2;blotter-svc\033\\'
+          - cd ./blotter-svc/
+          - sleep 5
+          - make run
+        - trader-svc:
+          - printf '\033]2;trader-svc\033\\'
+          - cd ./trader-svc/
+          - sleep 5
+          - make run
+        - notification-svc:
+          - printf '\033]2;notification-svc\033\\'
+          - cd ./notification-svc/
+          - sleep 5
+          - make run
+        - opportunity-svc:
+          - printf '\033]2;opportunity-svc\033\\'
+          - cd ./opportunity-svc/
+          - sleep 5
+          - make run
+        - fix-router:
+          - printf '\033]2;fix-router\033\\'
+          - cd ./fix-router
+          - sleep 5
+          - make run
+        - fix-config-svc:
+          - printf '\033]2;fix-config-svc\033\\'
+          - cd ./fix-config-svc/
+          - sleep 5
+          -  make run
+
+  - trading-2:
+     layout: tiled
+     panes:
+        - engagement-svc:
+          - printf '\033]2;engagement-svc\033\\'
+          - cd ./engagement-svc/
+          - sleep 5
+          - make run
+
+  - settlement:
+     layout: tiled
+     panes:
+        - credit-svc:
+          - printf '\033]2;credit-svc\033\\'
+          - cd ./credit-svc/
+          - sleep 5
+          - make run
+        - settlement-svc:
+          - printf '\033]2;settlement-svc\033\\'
+          - cd ./settlement-svc
+          - sleep 5
+          - make run
+        - statestreet-credit-gateway:
+          - printf '\033]2;statestreet-credit-gateway\033\\'
+          - cd ./statestreet-credit-gateway
+          - sleep 5
+          - make run
+        - icbc-gateway:
+          - printf '\033]2;icbc-gateway\033\\'
+          - cd ./icbc-gateway/
+          - sleep 5
+          - make run
+        - statestreet-mock-provider:
+          - printf '\033]2;statestreet-mock-provider\033\\'
+          - cd ./statestreet-mock-provider
+          - sleep 5
+          - make run
+        - icbc-mock-provider:
+          - printf '\033]2;icbc-mock-provider\033\\'
+          - cd ./icbc-mock-provider/
+          - sleep 5
+          - make run
+
+  - refdata:
+      layout: tiled
+      panes:
+        - reference-data-svc:
+          - printf '\033]2;reference-data-svc\033\\'
+          - cd ./reference-data-svc/
+          - make run
+        - treasury-svc:
+          - printf '\033]2;treasury-svc\033\\'
+          - cd ./treasury-svc/
+          - sleep 5
+          - make run
+        - bondmath-svc:
+          - printf '\033]2;bondmath-svc\033\\'
+          - cd ./bondmath-svc/
+          - sleep 5
+          - make run
+        - scoring-svc:
+          - printf '\033]2;scoring-svc\033\\'
+          - cd ./scoring-svc/
+          - sleep 5
+          - make run
+
+
+  - support:
+     layout: tiled
+     panes:
+        - account-svc:
+          - printf '\033]2;account-svc\033\\'
+          - cd ./account-svc/
+          - sleep 5
+          - make run
+        - job-svc:
+          - printf '\033]2;job-svc\033\\'
+          - cd ./job-svc/
+          - sleep 5
+          - make run
+        - reporting-svc:
+          - printf '\033]2;reporting-svc\033\\'
+          - cd ./reporting-svc/
+          - sleep 5
+          - make run
+        - scheduler-svc:
+          - printf '\033]2;scheduler-svc\033\\'
+          - cd ./scheduler-svc/
+          - sleep 5
+          - make run
+        - dmm-monitor:
+          - printf '\033]2;dmm-monitor\033\\'
+          - cd ./dmm-monitor/
+          - sleep 5
+          - make run
+        - surveillance-svc:
+          - printf '\033]2;surveillance-svc\033\\'
+          - cd ./surveillance-svc/
+          - sleep 5
+          - make run
+        - user-presence-svc:
+          - printf '\033]2;user-presence-svc\033\\'
+          - cd ./user-presence-svc/
+          - sleep 5
+          - make run
+        - slack-svc:
+          - printf '\033]2;slack-svc\033\\'
+          - cd ./slack-svc/
+          - sleep 5
+          - make run
+
+
+  - data-mining:
+     layout: tiled
+     panes:
+        - zeppelin:
+          - printf '\033]2;zeppelin\033\\'
+          - cd ./docker-apitools/
+          - print "type 'make run' to run zeppelin"
+        - zeppelin-ui:
+          - printf '\033]2;zeppelin-ui\033\\'
+          - cd ./docker-apitools/
+          - print "type 'make open' to view the zeppelin ui"

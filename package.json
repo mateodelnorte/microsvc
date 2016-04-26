@@ -15,7 +15,8 @@
     "llog": "0.0.1",
     "mkdirp": "^0.5.1",
     "ncp": "^2.0.0",
-    "stream-replace": "^1.0.0"
+    "stream-replace": "^1.0.0",
+    "tabtab": "0.0.4"
   },
   "repository": "git@github.com:mateodelnorte/microsvc.git"
 }

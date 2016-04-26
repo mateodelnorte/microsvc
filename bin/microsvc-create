@@ -1,0 +1,18 @@
+#!/usr/bin/env node
+
+if (module.parent) {
+  module.exports.name = 'create';
+  module.exports.description = 'create systems, services, and clients';
+  return;
+}
+
+const program = require('commander')
+  .version(require('../package.json').version);
+
+const service = require('./microsvc-create-service');
+const system = require('./microsvc-create-system');
+
+program
+  .command(system.name, system.description)
+  .command(service.name, service.description)
+  .parse(process.argv);

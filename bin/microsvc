@@ -1,3 +1,26 @@
 #!/usr/bin/env node
 
-require('../index');
+process.on('uncaughtException', (err) => {
+  console.error(err);
+  process.exit(1);
+});
+
+var tabtab = require('tabtab');
+
+if(process.argv.slice(2)[0] === 'completion') return tabtab.complete('microsvc', function(err, data) {
+  if(err || !data) return;
+
+  if(/^--\w?/.test(data.last)) return tabtab.log(['help', 'version'], data, '--');
+  if(/^-\w?/.test(data.last)) return tabtab.log(['n', 'o', 'd', 'e'], data, '-');
+
+  tabtab.log([create.name], data);
+});
+
+const program = require('commander')
+  .version(require('../package.json').version);
+
+const create = require('./microsvc-create');
+
+program
+  .command(create.name, create.description)
+  .parse(process.argv);
