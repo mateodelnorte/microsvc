@@ -31,18 +31,6 @@ windows:
           - printf '\033]2;one\033\\'
           # - cd ./web-admin/
           # - <% if ENV["NO_WEB"] != "true" %> sleep 5; make run <% else %> echo 'called with no-web' <% end %>
-        - web-client:
-          - printf '\033]2;web-client\033\\'
-          - cd ./web-client/
-          - <% if ENV["NO_WEB"] != "true" %> sleep 5; make run <% else %> echo 'called with no-web' <% end %>
-        - web-corp:
-          - printf '\033]2;web-corp\033\\'
-          - cd ./web-corp/
-          - <% if ENV["NO_WEB"] != "true" %> sleep 5; make run <% else %> echo 'called with no-web' <% end %>
-        - web-subscribers:
-          - printf '\033]2;web-subscribers\033\\'
-          - cd ./web-subscribers/
-          - <% if ENV["NO_WEB"] != "true" %> sleep 5; make run <% else %> echo 'called with no-web' <% end %>
   - backend:
       layout: tiled
       panes:
