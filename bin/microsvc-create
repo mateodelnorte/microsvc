@@ -9,10 +9,12 @@ if (module.parent) {
 const program = require('commander')
   .version(require('../package.json').version);
 
+const handler = require('./microsvc-create-handler');
 const service = require('./microsvc-create-service');
 const system = require('./microsvc-create-system');
 
 program
-  .command(system.name, system.description)
+  .command(handler.name, handler.description)
   .command(service.name, service.description)
+  .command(system.name, system.description)
   .parse(process.argv);
