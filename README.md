@@ -15,10 +15,10 @@
 
 ## microsvc technology
 
-* cconfig
-* llog
-* servicebus
+* [cconfig](https://github.com/mateodelnorte/cconfig)
+* [llog](https://github.com/mateodelnorte/llog)
+* [servicebus](https://github.com/mateodelnorte/servicebus)
 
 ## supporting technology
 
-* gitslave
+* [gitslave](http://gitslave.sourceforge.net/)
