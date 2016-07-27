@@ -1,6 +1,16 @@
 # microsvc
 
-microsvc is a tiny reusable framework for building microservices with messaging and rest
+```microsvc``` is a tiny reusable framework for building microservices with messaging and rest
+
+## Installation
+
+```
+npm install -g microsvc
+```
+
+### Dependencies
+
+```microsvc``` uses ```hub``` by github in order to create repositories on github for you. Follow [hub's official instructions](https://hub.github.com/) to install and configure ```hub``` on your machine.
 
 ## Usage
 
