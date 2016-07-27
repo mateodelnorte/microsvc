@@ -16,6 +16,8 @@
 # with the provided routingKey and additional options
 ```
 
+---
+
 ### ```microsvc create system```
 
 This project acts as a meta project to house all other service, site, api, etc repos.
@@ -28,6 +30,8 @@ To get started, download [gitslave](http://gitslave.sourceforge.net/) and perfor
 microsvc create system <SYSTEM_NAME>
 ```
 
+---
+
 ### ```microsvc create service```
 
 Creates a new service with example handlers and api exposed. The service also comes configured with configuration management using cconfig, logging with llog, and servicebus for messaging.
@@ -36,6 +40,8 @@ Creates a new service with example handlers and api exposed. The service also co
 microsvc create service <SERVICE_NAME>
 ```
 
+---
+
 ### ```microsvc create handler```
 
 Creates a new handler with the provided routingKey and additional options.
@@ -43,7 +49,6 @@ Creates a new handler with the provided routingKey and additional options.
 ```
 microsvc create handler <FILE_NAME>
 ```
-
 
 #### Options:
 
