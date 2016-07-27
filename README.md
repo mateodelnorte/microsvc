@@ -1,5 +1,7 @@
 # microsvc
 
+microsvc is a tiny reusable framework for building microservices with messaging and rest
+
 ## Usage
 
 ```
