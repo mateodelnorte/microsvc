@@ -1,6 +1,18 @@
 # microsvc
 
-microsvc is a tiny reusable framework for building microservices with messaging and rest
+```microsvc``` is a tiny reusable framework for building microservices with messaging and rest
+
+## Installation
+
+```
+npm install -g microsvc
+```
+
+### Dependencies
+
+```microsvc``` uses ```hub``` by github in order to create repositories on github for you. Follow [hub's official instructions](https://hub.github.com/) to install and configure ```hub``` on your machine.
+
+```microsvc``` uses ```gitslave``` to create a metarepo that handles performing commands across any number of attached repositories. Gitslave may be installed via brew install gitslave, but note you may find an issue with using the command gits status on macs with newer versions of git. To escape that fun little problem, we've made our own fix and made it available to you as an npm package via ```npm i gitslave -g```. You're welcome!
 
 ## Usage
 
