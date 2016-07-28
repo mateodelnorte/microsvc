@@ -1,0 +1,41 @@
+# ~/.tmuxinator/all.yml
+
+
+name: [SYSTEM_NAME]
+root: ./
+
+# Uncomment these two if you're a brave soul running a nightly build
+# attach: false
+# post: tmux -CC attach
+
+# Optional tmux socket
+# socket_name: foo
+
+# Runs before everything. Use it to start daemons etc.
+# pre: sudo /etc/rc.d/mysqld start
+
+# Runs in each window and pane before window/pane specific commands. Useful for setting up interpreter versions.
+# pre_window: rbenv shell 2.0.0-p247
+
+# Pass command line options to tmux. Useful for specifying a different tmux.conf.
+# tmux_options: -f ~/.tmux.mac.conf
+
+# Change the command to call tmux.  This can be used by derivatives/wrappers like byobu.
+# tmux_command: byobu
+
+windows:
+  - frontend:
+      layout: tiled
+      panes:
+        - one:
+          - printf '\033]2;one\033\\'
+          # - cd ./web-admin/
+          # - <% if ENV["NO_WEB"] != "true" %> sleep 5; make run <% else %> echo 'called with no-web' <% end %>
+  - backend:
+      layout: tiled
+      panes:
+        - one:
+          - printf '\033]2;one\033\\'
+          # - cd ./one/
+          # - sleep 5
+          # - make run

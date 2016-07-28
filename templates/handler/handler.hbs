@@ -1,0 +1,31 @@
+const log = require('llog');
+{{#if ack}}
+
+module.exports.ack = true;
+{{/if}}
+{{#if queueName}}
+
+module.exports.queueName = '{{queueName}}';
+{{/if}}
+{{#if routingKey}}
+
+module.exports.routingKey = '{{routingKey}}';
+{{/if}}
+{{#if type}}
+
+module.exports.type = '{{type}}';
+{{/if}}
+{{#if where}}
+
+module.exports.where = function (msg) {
+  return '{{where}}';
+}
+{{/if}}
+
+module.exports.{{handlerType}} = (event, cb) => {
+
+  log.debug(`handling {{handlerType}} on ${this.routingKey}`);
+
+  cb();
+
+};
