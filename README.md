@@ -28,6 +28,9 @@ npm install -g microsvc
 > microsvc create handler <FILE_NAME>
 # creates a new handler in the current directory
 # with the provided routingKey and additional options
+
+> microsvc create blank <PROJECT_NAME>
+# creates a new blank project
 ```
 
 ---
@@ -76,6 +79,18 @@ microsvc create handler <FILE_NAME>
 -t, --type [message type]       filter to a specific message type
 -w, --where [where clause]      provide a where clause
 ```
+
+---
+
+### ```microsvc create blank```
+
+Creates a new blank project initialized with README, .gitignore, and Makefile.
+
+```
+microsvc create blank <PROJECT_NAME>
+```
+
+---
 
 ## microsvc technology
 

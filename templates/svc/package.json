@@ -10,7 +10,7 @@
     "async": "^1.4.2",
     "body-parser": "^1.15.0",
     "bunyan": "^1.5.1",
-    "cconfig": "^0.0.1",
+    "cconfig": "^0.2.0",
     "debug": "^2.2.0",
     "errortrap": "^1.0.2",
     "express": "^4.13.4",

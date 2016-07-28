@@ -36,6 +36,20 @@ program
       });
     })
 
+const createBlank = require('./lib/createBlank');
+
+program
+  .command('blank <PROJECT_NAME>')
+  .description('creates a new blank project managed by gitslave')
+    .action(function (project) {
+      console.log(`creating new blank project: \'${project}\'...`);
+      createBlank(project, (err) => {
+        if (err) throw err;
+        console.log(`finished creating new blank project \'${project}\'...`);
+        console.log(`type 'cd ./${project}' to enter project directory`);
+      });
+    })
+
 program.parse(process.argv);
 
 if ( ! program.args.length) program.help();
