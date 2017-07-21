@@ -20,5 +20,8 @@
     "stream-replace": "^1.0.0",
     "tabtab": "0.0.4"
   },
-  "repository": "git@github.com:mateodelnorte/microsvc.git"
+  "repository": "git@github.com:mateodelnorte/microsvc.git",
+  "devDependencies": {
+    "jest": "^20.0.4"
+  }
 }
