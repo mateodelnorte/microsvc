@@ -1,7 +1,7 @@
 #!/usr/bin/env node
 
-const name = 'system <SYSTEM_NAME>'
-const description = 'creates a new system';
+const name = "system <SYSTEM_NAME>";
+const description = "creates a new system";
 const usage = `\n  usage:\n\n    ${name} - ${description}\n`;
 
 if (module.parent) {
@@ -10,21 +10,23 @@ if (module.parent) {
   return;
 }
 
-if ( ! process.argv[2] || process.argv[2] === '--help')
-  return console.log(usage);
+if (!process.argv[2] || process.argv[2] === "--help") return console.log(usage);
 
-const systemName = process.argv[2] === 'system' ?
-                      process.argv[3] :
-                      process.argv[2];
+const systemName =
+  process.argv[2] === "system" ? process.argv[3] : process.argv[2];
 
-const createSystem = require('../lib/createSystem');
+const createSystem = require("../lib/createSystem");
 
 console.log(`creating new system \'${systemName}\'...`);
 
-createSystem(systemName, (err) => {
-  if (err) throw err;
-
-  console.log(`finished creating new system \'${systemName}\'...`);
-  console.log(`type 'cd ./${systemName} && npm i && make run' to initialize and run`);
-
-});
+createSystem(systemName)
+  .then(() => {
+    console.log(`finished creating new system \'${systemName}\'...`);
+    console.log(
+      `type 'cd ./${systemName} && npm i && make run' to initialize and run`
+    );
+  })
+  .catch(err => {
+    console.error(err.message);
+    process.exit(1);
+  });
