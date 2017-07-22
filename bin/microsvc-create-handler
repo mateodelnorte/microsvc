@@ -1,10 +1,12 @@
 #!/usr/bin/env node
 
-const program = require('commander')
-  .version(require('../package.json').version);
+const program = require("commander").version(
+  require("../package.json").version
+);
 
-const name = 'handler <FILE_NAME>'
-const description = 'creates a new handler with the provided routingKey and additional options';
+const name = "handler <FILE_NAME>";
+const description =
+  "creates a new handler with the provided routingKey and additional options";
 const usage = `\n  usage:\n\n    ${name} - ${description}\n`;
 
 if (module.parent) {
@@ -15,41 +17,43 @@ if (module.parent) {
 
 program
   .command(name, description)
-    .option('-s, --subscribe', 'create subscribe handler (defaults to listen)')
-    .option('-r, --routingKey [routing key]', 'set the routing key name')
-    .option('-q, --queueName [queue name]', 'set the queue name')
-    .option('-a, --ack', 'set ack=true to create persistent queue and durable messages')
-    .option('-t, --type [message type]', 'filter to a specific message type')
-    .option('-w, --where [where clause]', 'provide a where clause')
-    .action((handler) => {
+  .option("-s, --subscribe", "create subscribe handler (defaults to listen)")
+  .option("-r, --routingKey [routing key]", "set the routing key name")
+  .option("-q, --queueName [queue name]", "set the queue name")
+  .option(
+    "-a, --ack",
+    "set ack=true to create persistent queue and durable messages"
+  )
+  .option("-t, --type [message type]", "filter to a specific message type")
+  .option("-w, --where [where clause]", "provide a where clause")
+  .action(handler => {
+    var params = {
+      ack: program.ack ? true : undefined,
+      handlerType: program.subscribe ? "subscribe" : "listen",
+      name: handler,
+      queueName: program.queueName ? program.queueName : undefined,
+      routingKey: program.routingKey ? program.routingKey : undefined,
+      type: program.type ? program.type : undefined,
+      where: program.where ? program.where : undefined
+    };
 
-      var params = {
-        ack: program.ack ? true : undefined,
-        handlerType: program.subscribe ? 'subscribe' : 'listen',
-        name: handler,
-        queueName: program.queueName ? program.queueName : undefined,
-        routingKey: program.routingKey ? program.routingKey : undefined,
-        type: program.type ? program.type : undefined,
-        where: program.where ? program.where : undefined
-      };
+    const createHandler = require("../lib/createHandler");
 
-      const createHandler = require('../lib/createHandler');
+    console.log(`creating new handler \'${handler}\'...`);
 
-      console.log(`creating new handler \'${handler}\'...`);
-
-      createHandler({
-        name: handler,
-        params: params
-      }, (err) => {
-        if (err) throw err;
-
+    createHandler({
+      name: handler,
+      params: params
+    })
+      .then(() => {
         console.log(`finished creating new handler \'${handler}\'...`);
-
+      })
+      .catch(err => {
+        console.error(err.message);
+        process.exit(1);
       });
-
-    });
+  });
 
 program.parse(process.argv);
 
-if ( ! process.argv[2] || process.argv[2] === '--help')
-  return program.help();;
+if (!process.argv[2] || process.argv[2] === "--help") return program.help();
