@@ -1,22 +1,23 @@
 {
   "name": "microsvc",
-  "version": "0.0.6",
+  "version": "0.0.7",
   "description": "framework for developing tiny services",
   "bin": "./bin/microsvc",
   "main": "index.js",
   "scripts": {
-    "test": "make test"
+    "test": "jest",
+    "test:watch": "jest --watch"
   },
   "author": "mattwalters5@gmail.com",
   "license": "ISC",
   "dependencies": {
     "commander": "^2.9.0",
     "debug": "^2.1.0",
+    "fs-extra": "^4.0.0",
     "handlebars": "^4.0.5",
     "llog": "0.0.1",
-    "mkdirp": "^0.5.1",
     "ncp": "^2.0.0",
-    "remove": "^0.1.5",
+    "parse-spawn-args": "^1.0.2",
     "stream-replace": "^1.0.0",
     "tabtab": "0.0.4"
   },
