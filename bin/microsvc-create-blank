@@ -1,7 +1,7 @@
 #!/usr/bin/env node
 
-const name = 'blank <PROJECT_NAME>'
-const description = 'creates a new blank project';
+const name = "blank <PROJECT_NAME>";
+const description = "creates a new blank project";
 const usage = `\n  usage:\n\n    ${name} - ${description}\n`;
 
 if (module.parent) {
@@ -10,21 +10,21 @@ if (module.parent) {
   return;
 }
 
-if ( ! process.argv[2] || process.argv[2] === '--help')
-  return console.log(usage);
+if (!process.argv[2] || process.argv[2] === "--help") return console.log(usage);
 
-const projectName = process.argv[2] === 'blank' ?
-                      process.argv[3] :
-                      process.argv[2];
+const projectName =
+  process.argv[2] === "blank" ? process.argv[3] : process.argv[2];
 
-const createBlank = require('../lib/createBlank');
+const createBlank = require("../lib/createBlank");
 
 console.log(`creating new blank project \'${projectName}\'...`);
 
-createBlank(projectName, (err) => {
-  if (err) throw err;
-
-  console.log(`finished creating new blank project \'${projectName}\'...`);
-  console.log(`type 'cd ./${projectName}' to enter the project directory`);
-
-});
+createBlank(projectName)
+  .then(() => {
+    console.log(`finished creating new blank project \'${projectName}\'...`);
+    console.log(`type 'cd ./${projectName}' to enter the project directory`);
+  })
+  .catch(err => {
+    console.error(err.message);
+    process.exit(1);
+  });
